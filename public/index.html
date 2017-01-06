@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        
+        <title>Knock knock</title>
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/manifest.json">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">  
+
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+        <style>
+            body { 
+                padding-top: 50px;
+            }
+            .main {
+                padding-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand">David's notify-o-matic</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container main">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="knock">Knock knock</button>
+            <br/>
+            <div class="alert alert-success collapse" role="alert" id="successMsg">Message sent</div>
+        </div><!-- /.container -->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $("#knock").click(function(e){
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/kk",
+                        success: function(){
+                            $("#successMsg").show();
+                        }
+                    });
+                });
+            });            
+        </script>
+    </body>
+</html>
